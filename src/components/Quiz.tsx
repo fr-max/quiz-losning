@@ -50,20 +50,20 @@ export default function Quiz() {
 
   if (isIntro) {
     return (
-      <div className="flex flex-col items-center justify-center px-6 py-16">
+      <div className="flex flex-col items-center justify-center px-6 py-8 md:py-12">
         <div className="max-w-xl w-full text-center">
-          <p className="text-sm font-semibold tracking-widest uppercase text-[#ff5a00] mb-4">
+          <p className="text-sm font-semibold tracking-widest uppercase text-[#ff5a00] mb-3">
             Løsningsberegner
           </p>
-          <h1 className="text-4xl font-bold leading-tight mb-6 text-[#304642]">
+          <h1 className="text-3xl md:text-4xl font-bold leading-tight mb-4 text-[#304642]">
             Hvilken løsning passer til jer?
           </h1>
-          <p className="text-lg text-[#304642]/70 mb-10 leading-relaxed">
+          <p className="text-base md:text-lg text-[#304642]/70 mb-8 leading-relaxed">
             Besvar fire korte spørgsmål og få et klart svar på, hvilken Inact-løsning I skal starte med — og hvorfor.
           </p>
           <button
             onClick={handleStart}
-            className="inline-block bg-[#ff5a00] text-white font-semibold text-base px-8 py-4 rounded-full hover:bg-[#e05000] transition-colors duration-200"
+            className="inline-block bg-[#ff5a00] text-white font-semibold text-base px-8 py-3.5 rounded-full hover:bg-[#e05000] transition-colors duration-200"
           >
             Find jeres løsning
           </button>
@@ -73,10 +73,10 @@ export default function Quiz() {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center px-6 py-16">
+    <div className="flex flex-col items-center justify-center px-6 py-8 md:py-12">
       <div className="max-w-2xl w-full">
         {/* Progress */}
-        <div className="mb-10">
+        <div className="mb-7">
           <div className="flex justify-between items-center mb-3">
             <button
               onClick={handleBack}
@@ -100,7 +100,7 @@ export default function Quiz() {
         </div>
 
         {/* Question */}
-        <h2 className="text-2xl font-bold text-[#304642] mb-8 leading-snug">
+        <h2 className="text-xl md:text-2xl font-bold text-[#304642] mb-5 leading-snug">
           {currentQuestion.question}
         </h2>
 
@@ -110,7 +110,7 @@ export default function Quiz() {
             <button
               key={i}
               onClick={() => handleAnswer(answer)}
-              className="group text-left w-full border border-[#304642]/15 rounded-2xl px-6 py-5 hover:border-[#ff5a00] hover:bg-[#ff5a00]/5 transition-all duration-150 cursor-pointer"
+              className="group text-left w-full border border-[#304642]/15 rounded-2xl px-5 py-4 hover:border-[#ff5a00] hover:bg-[#ff5a00]/5 transition-all duration-150 cursor-pointer"
             >
               <div className="flex items-start gap-4">
                 <span className="mt-0.5 flex-shrink-0 w-7 h-7 rounded-full border border-[#304642]/20 group-hover:border-[#ff5a00] group-hover:bg-[#ff5a00] transition-all duration-150 flex items-center justify-center text-xs font-semibold text-[#304642]/40 group-hover:text-white">

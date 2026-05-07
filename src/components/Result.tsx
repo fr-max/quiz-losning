@@ -18,17 +18,17 @@ export default function Result({ solution, onRestart }: ResultProps) {
   const badgeClass = solutionColors[solution.key] ?? "bg-gray-100 text-gray-600";
 
   return (
-    <div className="px-8 py-10 max-w-4xl mx-auto">
+    <div className="px-6 py-8 md:px-8 md:py-10 max-w-4xl mx-auto">
       {/* Top: badge + heading + stat side by side on wide screens */}
-      <div className="flex flex-col lg:flex-row lg:items-start lg:gap-12 mb-8">
+      <div className="flex flex-col md:flex-row md:items-start md:gap-10 mb-6">
         <div className="flex-1 mb-6 lg:mb-0">
           <div className="mb-4">
             <span className={`inline-block text-xs font-semibold tracking-widest uppercase px-3 py-1 rounded-full ${badgeClass}`}>
               Anbefalet løsning
             </span>
           </div>
-          <h1 className="text-4xl font-bold text-[#304642] leading-tight mb-1">Start med</h1>
-          <h2 className="text-4xl font-bold text-[#ff5a00] leading-tight mb-3">{solution.name}</h2>
+          <h1 className="text-3xl md:text-4xl font-bold text-[#304642] leading-tight mb-1">Start med</h1>
+          <h2 className="text-3xl md:text-4xl font-bold text-[#ff5a00] leading-tight mb-3">{solution.name}</h2>
           <p className="text-base text-[#304642]/60 font-medium mb-5">{solution.tagline}</p>
           <p className="text-base text-[#304642]/80 leading-relaxed">{solution.why}</p>
         </div>
