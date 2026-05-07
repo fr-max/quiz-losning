@@ -9,13 +9,22 @@ export default function Quiz() {
   const [selected, setSelected] = useState<Answer[]>([]);
   const [result, setResult] = useState<SolutionKey | null>(null);
 
-  const currentQuestion = questions[step - 1];
   const totalSteps = questions.length;
+  const currentQuestion = questions[step - 1];
   const isIntro = step === 0;
   const isDone = result !== null;
 
   function handleStart() {
     setStep(1);
+  }
+
+  function handleBack() {
+    if (step > 1) {
+      setSelected(selected.slice(0, -1));
+      setStep(step - 1);
+    } else {
+      setStep(0);
+    }
   }
 
   function handleAnswer(answer: Answer) {
@@ -50,7 +59,7 @@ export default function Quiz() {
             Hvilken løsning passer til jer?
           </h1>
           <p className="text-lg text-[#304642]/70 mb-10 leading-relaxed">
-            Besvar tre korte spørgsmål og få et klart svar på, hvilken Inact-løsning I skal starte med — og hvorfor.
+            Besvar fire korte spørgsmål og få et klart svar på, hvilken Inact-løsning I skal starte med — og hvorfor.
           </p>
           <button
             onClick={handleStart}
@@ -69,11 +78,17 @@ export default function Quiz() {
         {/* Progress */}
         <div className="mb-10">
           <div className="flex justify-between items-center mb-3">
+            <button
+              onClick={handleBack}
+              className="flex items-center gap-1.5 text-sm font-medium text-[#304642]/50 hover:text-[#304642] transition-colors duration-150"
+            >
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M10 12L6 8l4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              Tilbage
+            </button>
             <span className="text-sm font-medium text-[#304642]/50">
-              Spørgsmål {step} af {totalSteps}
-            </span>
-            <span className="text-sm font-medium text-[#304642]/50">
-              {Math.round((step / totalSteps) * 100)}%
+              {step} / {totalSteps}
             </span>
           </div>
           <div className="h-1.5 bg-[#304642]/10 rounded-full overflow-hidden">

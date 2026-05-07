@@ -17,74 +17,49 @@ export interface Solution {
   tagline: string;
   why: string;
   bullets: string[];
+  stat: string | null;
   url: string;
 }
 
 export const questions: Question[] = [
   {
     id: 1,
-    question: "Hvad er jeres største udfordring lige nu?",
+    question: "Hvor oplever I den største udfordring i dag?",
     answers: [
-      {
-        label: "Vi har for meget kapital bundet i lageret og ved ikke præcist, hvad vi skal bestille og hvornår",
-        scores: { lager: 3 },
-      },
-      {
-        label: "Vores leverandører leverer forsinket og vi kan ikke forudsige det — det giver konstante problemer",
-        scores: { leverandoer: 3 },
-      },
-      {
-        label: "Vi sælger meget, men tjener for lidt — marginerne er for lave på for mange produkter",
-        scores: { produkt: 3 },
-      },
-      {
-        label: "Vi vokser, men mangler overblik over hvilke kunder og produkter der rent faktisk er profitable",
-        scores: { e2e: 3 },
-      },
+      { label: "I lageret — vi kæmper med kapitalbinding og lagerniveauer", scores: { lager: 3 } },
+      { label: "Hos leverandørerne — vi kan ikke stole på deres leveringer", scores: { leverandoer: 3 } },
+      { label: "I sortimentet — for mange produkter med for lave marginer", scores: { produkt: 3 } },
+      { label: "I kundeporteføljen — vi ved ikke hvem der rent faktisk er profitable", scores: { e2e: 3 } },
     ],
   },
   {
     id: 2,
     question: "Hvad er jeres vigtigste mål de næste 6-12 måneder?",
     answers: [
-      {
-        label: "Reducere lagerniveauer og frigøre bundet kapital uden at gå på kompromis med serviceniveauet",
-        scores: { lager: 3 },
-      },
-      {
-        label: "Forbedre leveringssikkerheden og styrke samarbejdet med vores leverandører",
-        scores: { leverandoer: 3 },
-      },
-      {
-        label: "Optimere sortimentet, udfase tabsgivende produkter og løfte den gennemsnitlige margin",
-        scores: { produkt: 3 },
-      },
-      {
-        label: "Skabe mere profitabel vækst med fokus på de rigtige kunder og det rette kundemix",
-        scores: { e2e: 3 },
-      },
+      { label: "Frigøre kapital bundet i lageret", scores: { lager: 3 } },
+      { label: "Øge leveringssikkerheden fra vores leverandører", scores: { leverandoer: 3 } },
+      { label: "Løfte den gennemsnitlige margin på vores produkter", scores: { produkt: 3 } },
+      { label: "Skabe profitabel vækst med fokus på de rigtige kunder", scores: { e2e: 3 } },
     ],
   },
   {
     id: 3,
-    question: "Hvad ville give jer mest værdi i dag?",
+    question: "Hvad bruger I mest tid på at håndtere?",
     answers: [
-      {
-        label: "Et klart overblik over sikkerhedslager, ABC-segmentering og kapitalbinding i realtid",
-        scores: { lager: 3 },
-      },
-      {
-        label: "Leverandørscorecards og løbende overvågning af OTIF, lead times og kvalitet",
-        scores: { leverandoer: 3 },
-      },
-      {
-        label: "Analyse af dækningsbidrag, cost-to-serve og marginudvikling per produkt og SKU",
-        scores: { produkt: 3 },
-      },
-      {
-        label: "Kundesegmentering efter profitabilitet og mulighed for at køre what-if analyser",
-        scores: { e2e: 3 },
-      },
+      { label: "Over- eller underfyldte lagre", scores: { lager: 3 } },
+      { label: "Forsinkede eller mangelfulde leverancer", scores: { leverandoer: 3 } },
+      { label: "Produkter der sælger, men ikke tjener penge", scores: { produkt: 3 } },
+      { label: "At forstå hvilke ordrer og kunder der er rentable", scores: { e2e: 3 } },
+    ],
+  },
+  {
+    id: 4,
+    question: "Hvad mangler I mest indsigt i?",
+    answers: [
+      { label: "Hvilke produkter der binder mest kapital — og hvad vi burde bestille", scores: { lager: 3 } },
+      { label: "Hvilke leverandører der udgør den største risiko for os", scores: { leverandoer: 3 } },
+      { label: "Hvilke produkter der trækker bundlinjen ned", scores: { produkt: 3 } },
+      { label: "Hvilke kunder der faktisk driver profitten i vores forretning", scores: { e2e: 3 } },
     ],
   },
 ];
@@ -102,6 +77,7 @@ export const solutions: Record<SolutionKey, Solution> = {
       "Simulér service- og lagerniveauer",
       "Visualisér kapitalbinding i realtid",
     ],
+    stat: "Reducer kapitalbindingen med 15-25 % og øg servicegraden",
     url: "https://inact.io/loesning/lageroptimering/",
   },
   leverandoer: {
@@ -116,6 +92,7 @@ export const solutions: Record<SolutionKey, Solution> = {
       "Understøt forhandlinger med fakta",
       "Identificér risikoleverandører tidligt",
     ],
+    stat: "Reducer forsinkelser med 30 % og øg OTIF",
     url: "https://inact.io/loesning/leverandoerperformance/",
   },
   produkt: {
@@ -130,6 +107,7 @@ export const solutions: Record<SolutionKey, Solution> = {
       "Overvåg pris- og marginudvikling",
       "Udfas tabsgivende produkter",
     ],
+    stat: "Reducer lav-margin varer med 20 % og løft profitten",
     url: "https://inact.io/loesning/produkt-management/",
   },
   e2e: {
@@ -144,13 +122,12 @@ export const solutions: Record<SolutionKey, Solution> = {
       "Skab balance mellem top- og bundlinje",
       "Beregn what-if på kommercielle valg",
     ],
+    stat: null,
     url: "https://inact.io/loesning/end-to-end-intelligence/",
   },
 };
 
-export function calculateResult(
-  selectedAnswers: Answer[]
-): SolutionKey {
+export function calculateResult(selectedAnswers: Answer[]): SolutionKey {
   const scores: Record<SolutionKey, number> = {
     lager: 0,
     leverandoer: 0,
@@ -164,5 +141,5 @@ export function calculateResult(
     }
   }
 
-  return (Object.entries(scores).sort((a, b) => b[1] - a[1])[0][0]) as SolutionKey;
+  return Object.entries(scores).sort((a, b) => b[1] - a[1])[0][0] as SolutionKey;
 }

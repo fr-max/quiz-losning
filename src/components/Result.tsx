@@ -38,6 +38,18 @@ export default function Result({ solution, onRestart }: ResultProps) {
           {solution.tagline}
         </p>
 
+        {/* Stat */}
+        {solution.stat && (
+          <div className="bg-[#304642] text-white rounded-2xl px-6 py-5 mb-8">
+            <p className="text-xs font-semibold uppercase tracking-widest text-white/50 mb-1">
+              Det ser vi typisk hos vores kunder
+            </p>
+            <p className="text-lg font-semibold leading-snug">
+              {solution.stat}
+            </p>
+          </div>
+        )}
+
         {/* Divider */}
         <div className="h-px bg-[#304642]/10 mb-8" />
 
@@ -47,7 +59,7 @@ export default function Result({ solution, onRestart }: ResultProps) {
         </p>
 
         {/* Bullets */}
-        <div className="bg-[#304642]/[0.03] border border-[#304642]/10 rounded-2xl px-6 py-6 mb-10">
+        <div className="bg-[#304642]/[0.03] border border-[#304642]/10 rounded-2xl px-6 py-6 mb-6">
           <p className="text-sm font-semibold uppercase tracking-widest text-[#304642]/40 mb-4">
             Hvad I får
           </p>
@@ -65,6 +77,18 @@ export default function Result({ solution, onRestart }: ResultProps) {
           </ul>
         </div>
 
+        {/* Consultant note */}
+        <div className="flex items-start gap-3 bg-[#ff5a00]/5 border border-[#ff5a00]/15 rounded-2xl px-6 py-5 mb-10">
+          <svg className="mt-0.5 flex-shrink-0" width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <circle cx="9" cy="9" r="9" fill="#ff5a00" fillOpacity="0.15" />
+            <path d="M6 9.5l2 2 4-4" stroke="#ff5a00" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+          <p className="text-sm text-[#304642]/70 leading-relaxed">
+            <span className="font-semibold text-[#304642]">Vores konsulentteam sikrer implementeringen.</span>{" "}
+            Vi sætter løsningen op efter jeres behov, giver løbende sparring og tager medansvar for at I når jeres mål.
+          </p>
+        </div>
+
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row gap-3">
           <a
@@ -75,9 +99,21 @@ export default function Result({ solution, onRestart }: ResultProps) {
           >
             Lær mere om {solution.name}
           </a>
+          <a
+            href="https://inact.io/vaerdianalyse/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 text-center border border-[#304642]/20 text-[#304642] font-semibold text-base px-8 py-4 rounded-full hover:bg-[#304642]/5 transition-colors duration-200"
+          >
+            Prøv vores værdianalyse
+          </a>
+        </div>
+
+        {/* Restart */}
+        <div className="text-center mt-6">
           <button
             onClick={onRestart}
-            className="flex-1 text-center border border-[#304642]/20 text-[#304642] font-semibold text-base px-8 py-4 rounded-full hover:bg-[#304642]/5 transition-colors duration-200"
+            className="text-sm text-[#304642]/40 hover:text-[#304642]/70 transition-colors duration-150"
           >
             Tag testen igen
           </button>
