@@ -69,7 +69,7 @@ export default function Result({ solution, onRestart }: ResultProps) {
       {/* CTAs */}
       <div className="flex flex-col sm:flex-row gap-3">
         <a
-          href={solution.url}
+          href={`${solution.url}?utm_source=losningsberegner&utm_medium=quiz&utm_campaign=losningsberegner&utm_content=${solution.key}`}
           target="_blank"
           rel="noopener noreferrer"
           className="flex-1 text-center bg-[#ff5a00] text-white font-semibold text-sm sm:text-base px-6 py-3.5 rounded-full hover:bg-[#e05000] transition-colors duration-200"
@@ -77,7 +77,7 @@ export default function Result({ solution, onRestart }: ResultProps) {
           Lær mere om {solution.name}
         </a>
         <a
-          href="https://inact.io/vaerdianalyse/"
+          href={`https://inact.io/vaerdianalyse/?utm_source=losningsberegner&utm_medium=quiz&utm_campaign=losningsberegner&utm_content=${solution.key}`}
           target="_blank"
           rel="noopener noreferrer"
           className="flex-1 text-center border border-[#304642]/20 text-[#304642] font-semibold text-sm sm:text-base px-6 py-3.5 rounded-full hover:bg-[#304642]/5 transition-colors duration-200"
