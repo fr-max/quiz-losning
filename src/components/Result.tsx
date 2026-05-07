@@ -18,7 +18,7 @@ export default function Result({ solution, onRestart }: ResultProps) {
   const badgeClass = solutionColors[solution.key] ?? "bg-gray-100 text-gray-600";
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen px-6 py-16">
+    <div className="flex flex-col items-center justify-center px-6 py-16">
       <div className="max-w-2xl w-full">
         {/* Badge */}
         <div className="mb-6">
