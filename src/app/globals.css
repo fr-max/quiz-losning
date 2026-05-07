@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+:root {
+  --brand-dark: #304642;
+  --brand-orange: #ff5a00;
+}
+
+body {
+  background: #ffffff;
+  color: var(--brand-dark);
+}
