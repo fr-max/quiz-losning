@@ -2,28 +2,20 @@
 
 import type { Solution } from "@/data/quiz";
 
-const solutionColors: Record<string, string> = {
-  lager: "bg-blue-50 text-blue-700",
-  leverandoer: "bg-emerald-50 text-emerald-700",
-  produkt: "bg-amber-50 text-amber-700",
-  e2e: "bg-violet-50 text-violet-700",
-};
-
 interface ResultProps {
   solution: Solution;
   onRestart: () => void;
 }
 
 export default function Result({ solution, onRestart }: ResultProps) {
-  const badgeClass = solutionColors[solution.key] ?? "bg-gray-100 text-gray-600";
 
   return (
     <div className="px-6 py-8 md:px-8 md:py-10 max-w-4xl mx-auto">
       {/* Top: badge + heading + stat side by side on wide screens */}
-      <div className="flex flex-col md:flex-row md:items-start md:gap-10 mb-6">
+      <div className="flex flex-col sm:flex-row sm:items-start sm:gap-10 mb-6">
         <div className="flex-1 mb-6 lg:mb-0">
           <div className="mb-4">
-            <span className={`inline-block text-xs font-semibold tracking-widest uppercase px-3 py-1 rounded-full ${badgeClass}`}>
+            <span className="inline-block text-xs font-semibold tracking-widest uppercase px-3 py-1 rounded-full bg-[#ff5a00]/10 text-[#ff5a00]">
               Anbefalet løsning
             </span>
           </div>
@@ -34,7 +26,7 @@ export default function Result({ solution, onRestart }: ResultProps) {
         </div>
 
         {/* Right column: stat + bullets */}
-        <div className="lg:w-80 flex-shrink-0 flex flex-col gap-4">
+        <div className="sm:w-72 flex-shrink-0 flex flex-col gap-4">
           {solution.stat && (
             <div className="bg-[#304642] text-white rounded-2xl px-5 py-4">
               <p className="text-xs font-semibold uppercase tracking-widest text-white/50 mb-1">
