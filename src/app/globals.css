@@ -8,4 +8,5 @@
 body {
   background: #ffffff;
   color: var(--brand-dark);
+  overflow-x: hidden;
 }

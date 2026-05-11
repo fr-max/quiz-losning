@@ -54,20 +54,20 @@ export default function Quiz() {
 
   if (isIntro) {
     return (
-      <div className="flex flex-col items-center justify-center px-4 py-8 sm:px-8 sm:py-12 w-full">
-        <div className="w-full max-w-2xl text-center">
-          <p className="text-sm font-semibold tracking-widest uppercase text-[#ff5a00] mb-4">
+      <div className="flex flex-col items-center justify-center px-6 py-16 sm:px-12 sm:py-24 w-full">
+        <div className="w-full max-w-3xl text-center">
+          <p className="text-sm font-semibold tracking-widest uppercase text-[#ff5a00] mb-5">
             Løsningsberegner
           </p>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-5 text-[#304642]">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-[#304642]">
             Hvilken løsning passer til jer?
           </h1>
-          <p className="text-base sm:text-lg text-[#304642]/70 mb-8 leading-relaxed">
+          <p className="text-lg sm:text-xl text-[#304642]/70 mb-10 leading-relaxed max-w-xl mx-auto">
             Besvar fire korte spørgsmål og få et klart svar på, hvilken Inact-løsning I skal starte med — og hvorfor.
           </p>
           <button
             onClick={handleStart}
-            className="inline-block bg-[#ff5a00] text-white font-semibold text-base sm:text-lg px-8 py-4 rounded-full hover:bg-[#e05000] transition-colors duration-200"
+            className="inline-block bg-[#ff5a00] text-white font-semibold text-lg px-10 py-4 rounded-full hover:bg-[#e05000] transition-colors duration-200"
           >
             Find jeres løsning
           </button>
