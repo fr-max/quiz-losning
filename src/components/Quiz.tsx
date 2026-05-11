@@ -56,18 +56,18 @@ export default function Quiz() {
     return (
       <div className="flex flex-col items-center justify-center px-4 py-8 sm:px-8 sm:py-12 w-full">
         <div className="w-full max-w-2xl text-center">
-          <p className="text-xs sm:text-sm font-semibold tracking-widest uppercase text-[#ff5a00] mb-3">
+          <p className="text-sm font-semibold tracking-widest uppercase text-[#ff5a00] mb-4">
             Løsningsberegner
           </p>
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight mb-4 text-[#304642]">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-5 text-[#304642]">
             Hvilken løsning passer til jer?
           </h1>
-          <p className="text-sm sm:text-base text-[#304642]/70 mb-7 leading-relaxed">
+          <p className="text-base sm:text-lg text-[#304642]/70 mb-8 leading-relaxed">
             Besvar fire korte spørgsmål og få et klart svar på, hvilken Inact-løsning I skal starte med — og hvorfor.
           </p>
           <button
             onClick={handleStart}
-            className="inline-block bg-[#ff5a00] text-white font-semibold text-sm sm:text-base px-7 py-3.5 rounded-full hover:bg-[#e05000] transition-colors duration-200"
+            className="inline-block bg-[#ff5a00] text-white font-semibold text-base sm:text-lg px-8 py-4 rounded-full hover:bg-[#e05000] transition-colors duration-200"
           >
             Find jeres løsning
           </button>
@@ -103,7 +103,7 @@ export default function Quiz() {
       </div>
 
       {/* Question */}
-      <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-[#304642] mb-5 leading-snug">
+      <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#304642] mb-5 leading-snug">
         {currentQuestion.question}
       </h2>
 
@@ -119,7 +119,7 @@ export default function Quiz() {
               <span className="mt-0.5 flex-shrink-0 w-6 h-6 sm:w-7 sm:h-7 rounded-full border border-[#304642]/20 group-hover:border-[#ff5a00] group-hover:bg-[#ff5a00] transition-all duration-150 flex items-center justify-center text-xs font-semibold text-[#304642]/40 group-hover:text-white">
                 {String.fromCharCode(65 + i)}
               </span>
-              <span className="text-sm sm:text-base text-[#304642] leading-relaxed">
+              <span className="text-base sm:text-lg text-[#304642] leading-relaxed">
                 {answer.label}
               </span>
             </div>

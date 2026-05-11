@@ -19,10 +19,10 @@ export default function Result({ solution, onRestart }: ResultProps) {
               Anbefalet løsning
             </span>
           </div>
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#304642] leading-tight mb-1">Start med</h1>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#ff5a00] leading-tight mb-2">{solution.name}</h2>
-          <p className="text-sm sm:text-base text-[#304642]/60 font-medium mb-4">{solution.tagline}</p>
-          <p className="text-sm sm:text-base text-[#304642]/80 leading-relaxed">{solution.why}</p>
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#304642] leading-tight mb-1">Start med</h1>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#ff5a00] leading-tight mb-3">{solution.name}</h2>
+          <p className="text-base sm:text-lg text-[#304642]/60 font-medium mb-4">{solution.tagline}</p>
+          <p className="text-base sm:text-lg text-[#304642]/80 leading-relaxed">{solution.why}</p>
         </div>
 
         {/* Right: stat + bullets */}
