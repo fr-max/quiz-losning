@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { questions, solutions, calculateResult, type Answer, type SolutionKey } from "@/data/quiz";
 import Result from "@/components/Result";
+import { trackEvent } from "@/lib/gtag";
 
 export default function Quiz() {
   const [step, setStep] = useState(0);
@@ -14,7 +15,10 @@ export default function Quiz() {
   const isIntro = step === 0;
   const isDone = result !== null;
 
-  function handleStart() { setStep(1); }
+  function handleStart() {
+    trackEvent("quiz_started");
+    setStep(1);
+  }
 
   function handleBack() {
     if (step > 1) {
@@ -32,7 +36,9 @@ export default function Quiz() {
       setStep(step + 1);
     } else {
       setSelected(next);
-      setResult(calculateResult(next));
+      const solution = calculateResult(next);
+      trackEvent("quiz_completed", { solution });
+      setResult(solution);
     }
   }
 
