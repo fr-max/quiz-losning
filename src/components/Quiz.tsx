@@ -59,7 +59,7 @@ export default function Quiz() {
           <p className="text-xs sm:text-sm font-semibold tracking-widest uppercase text-[#ff5a00] mb-4">
             Løsningsberegner
           </p>
-          <h1 className="text-2xl sm:text-4xl lg:text-6xl font-bold leading-tight mb-4 sm:mb-6 text-[#304642] break-words">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-4 sm:mb-6 text-[#304642] break-words">
             Hvilken løsning passer til jer?
           </h1>
           <p className="text-base sm:text-lg text-[#304642]/70 mb-8 leading-relaxed max-w-xl mx-auto">
