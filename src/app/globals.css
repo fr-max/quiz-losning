@@ -5,8 +5,13 @@
   --brand-orange: #ff5a00;
 }
 
+html {
+  max-width: 100%;
+}
+
 body {
   background: #ffffff;
   color: var(--brand-dark);
   overflow-x: hidden;
+  max-width: 100%;
 }
