@@ -35,7 +35,7 @@ export default function LeadForm({ solution, onBack }: LeadFormProps) {
         formId: "3d392b29-5ce4-433f-abe5-e3f6b545b447",
         target: "#hs-lead-form",
         hiddenFieldValues: {
-          anbefalet_loesning: solution.key,
+          anbefalet_lsning: solution.key,
         },
         onFormSubmitted: () => {
           trackEvent("lead_submitted", { solution: solution.key });
