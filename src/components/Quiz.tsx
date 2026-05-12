@@ -3,12 +3,14 @@
 import { useState } from "react";
 import { questions, solutions, calculateResult, type Answer, type SolutionKey } from "@/data/quiz";
 import Result from "@/components/Result";
+import LeadForm from "@/components/LeadForm";
 import { trackEvent } from "@/lib/gtag";
 
 export default function Quiz() {
   const [step, setStep] = useState(0);
   const [selected, setSelected] = useState<Answer[]>([]);
   const [result, setResult] = useState<SolutionKey | null>(null);
+  const [showForm, setShowForm] = useState(false);
 
   const totalSteps = questions.length;
   const currentQuestion = questions[step - 1];
@@ -46,10 +48,14 @@ export default function Quiz() {
     setStep(0);
     setSelected([]);
     setResult(null);
+    setShowForm(false);
   }
 
   if (isDone && result) {
-    return <Result solution={solutions[result]} onRestart={handleRestart} />;
+    if (showForm) {
+      return <LeadForm solution={solutions[result]} onBack={() => setShowForm(false)} />;
+    }
+    return <Result solution={solutions[result]} onRestart={handleRestart} onBooking={() => setShowForm(true)} />;
   }
 
   if (isIntro) {

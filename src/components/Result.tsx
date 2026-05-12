@@ -6,9 +6,10 @@ import { trackEvent } from "@/lib/gtag";
 interface ResultProps {
   solution: Solution;
   onRestart: () => void;
+  onBooking: () => void;
 }
 
-export default function Result({ solution, onRestart }: ResultProps) {
+export default function Result({ solution, onRestart, onBooking }: ResultProps) {
   return (
     <div className="px-4 py-6 sm:px-8 sm:py-10 w-full">
       <div className="flex flex-col sm:flex-row sm:items-start sm:gap-10 mb-6">
@@ -69,23 +70,20 @@ export default function Result({ solution, onRestart }: ResultProps) {
 
       {/* CTAs */}
       <div className="flex flex-col sm:flex-row gap-3">
+        <button
+          onClick={() => { trackEvent("quiz_cta_clicked", { cta: "book_gennemgang", solution: solution.key }); onBooking(); }}
+          className="flex-1 text-center bg-[#ff5a00] text-white font-semibold text-sm sm:text-base px-6 py-3.5 rounded-full hover:bg-[#e05000] transition-colors duration-200"
+        >
+          Book en gratis gennemgang
+        </button>
         <a
           href={`${solution.url}?utm_source=losningsberegner&utm_medium=quiz&utm_campaign=losningsberegner&utm_content=${solution.key}`}
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => trackEvent("quiz_cta_clicked", { cta: "laer_mere", solution: solution.key })}
-          className="flex-1 text-center bg-[#ff5a00] text-white font-semibold text-sm sm:text-base px-6 py-3.5 rounded-full hover:bg-[#e05000] transition-colors duration-200"
-        >
-          Lær mere om {solution.name}
-        </a>
-        <a
-          href={`https://inact.io/vaerdianalyse/?utm_source=losningsberegner&utm_medium=quiz&utm_campaign=losningsberegner&utm_content=${solution.key}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={() => trackEvent("quiz_cta_clicked", { cta: "vaerdianalyse", solution: solution.key })}
           className="flex-1 text-center border border-[#304642]/20 text-[#304642] font-semibold text-sm sm:text-base px-6 py-3.5 rounded-full hover:bg-[#304642]/5 transition-colors duration-200"
         >
-          Prøv vores værdianalyse
+          Lær mere om {solution.name}
         </a>
       </div>
 
