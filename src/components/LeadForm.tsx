@@ -34,8 +34,13 @@ export default function LeadForm({ solution, onBack }: LeadFormProps) {
         portalId: "145837274",
         formId: "3d392b29-5ce4-433f-abe5-e3f6b545b447",
         target: "#hs-lead-form",
-        hiddenFieldValues: {
-          anbefalet_lsning: solution.key,
+        onFormReady: () => {
+          const field = document.querySelector<HTMLInputElement>('input[name="anbefalet_lsning"]');
+          if (field) {
+            field.value = solution.key;
+            field.dispatchEvent(new Event("input", { bubbles: true }));
+            field.dispatchEvent(new Event("change", { bubbles: true }));
+          }
         },
         onFormSubmitted: () => {
           trackEvent("lead_submitted", { solution: solution.key });
